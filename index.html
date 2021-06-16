@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Modal</title>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        body{
+            background-color: grey;
+        }
+        #btn{
+            margin: auto;
+            margin-left: 500px;
+            padding:5px;
+            width: 120px;
+            height: 30px;
+            text-align: center;
+            background-color: white;
+            border: 2px solid black;
+        }
+        #btn:hover{
+            background-color: blue;
+            color: white;
+            transition: 1s;
+        }
+        .modal{
+            display: none;
+            width:462px;
+            height:300px;
+            border: 8px solid yellowgreen;
+            margin: auto;
+            padding: 0;
+            position: relative;
+            animation-name: animatetop;
+            animation-duration: 0.4s
+        }
+        @keyframes animatetop {
+            from {top:-300px; opacity:0}
+            to {top:0; opacity:1}
+            }
+        header{
+            background-color: orange;
+            font-size: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        section{
+            font-size: 20px;
+        }
+        footer{
+            background-color: orange;
+            font-size: 28px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .close{
+            margin-left: 5px;
+            margin-top: 5px;
+            text-align: center;
+            padding: 5px;
+        }
+        .close:hover{
+            width:50px;
+            height:30px;
+            background-color: red;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+    </style>
+    </head>
+    <body>
+        <button type="button" id="btn"><b>Open Modal</b></button>
+        <div id="myDiv" class="modal">
+            <header>
+                <span class="close">&times;</span>
+                <h2>Let's collect some idea with together</h2>
+            </header>
+            <section>
+                <p>So guys as you know we don't have so much time and there are so much things that we have to learn.
+                    It's time to get together and learn the program as much as possible in the limited time in the perspective of course completion.
+                </p>
+            </section>
+            <footer>
+                <h3>Thank You</h3>
+            </footer>
+        </div>
+        <script>
+          var modal = document.getElementById("myDiv");
+
+            var btn = document.getElementById("btn");
+
+            var span = document.getElementsByClassName("close")[0];
+
+            btn.onclick = function() {
+            modal.style.display = "block";
+            }
+
+            span.onclick = function() {
+            modal.style.display = "none";
+            }
+
+            window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+            }
+        </script>
+    </body>
+</html>
